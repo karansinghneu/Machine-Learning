@@ -19,12 +19,12 @@ def firstDerivative(alpha, beta, all_points, gumbel_all_points, flag):
     return final_result
 
 def secondDerivative(alpha, beta, all_points, gumbel_all_points, flag):
-    if (flag == 'alpha'):
+    if flag == 'alpha':
         first_term = 0
         for i in range(0, len(all_points)):
             first_term += (gumbel_all_points[i] * math.exp(-((all_points[i] - alpha) / beta)))
         final_result = (-1 / (beta * beta)) * first_term
-    if (flag == 'beta'):
+    if flag == 'beta':
         first_term = 0
         second_term = 0
         third_term = 0
