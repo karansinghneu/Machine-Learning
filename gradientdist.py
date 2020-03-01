@@ -2,7 +2,6 @@ import random
 
 import numpy as np
 import sklearn as sklearn
-from sklearn import datasets
 
 
 def generateData(datapoints, features, bias, noise):
