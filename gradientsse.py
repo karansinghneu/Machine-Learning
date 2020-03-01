@@ -2,7 +2,6 @@ import random
 
 import numpy as np
 import sklearn as sklearn
-from sklearn import datasets
 
 
 def generateData(datapoints, features, bias, noise):
@@ -61,7 +60,6 @@ def gradient_descent():
 def fit():
     data, original_y, weights = gradient_descent()
     predcited_y = [0] * len(original_y)
-    first_num = 0
     for i in range(0, len(data)):
         sum = 0
         for j in range(1, len(weights)):
