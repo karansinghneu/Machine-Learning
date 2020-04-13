@@ -1,6 +1,5 @@
 import math
 import numpy as np
-from keras import regularizers
 from keras.layers import Dense
 from keras.models import Sequential
 from sklearn.metrics import roc_auc_score
@@ -10,9 +9,6 @@ import keras
 import seaborn as sb
 from sklearn.metrics import accuracy_score
 from sklearn.utils import shuffle
-from scipy import stats
-from sklearn.model_selection import KFold
-
 import matplotlib.pyplot as plt
 
 
@@ -109,33 +105,34 @@ def ensemble(h1, h2, dataset, output, resampling_flag):
         print(
             '*********************************************************ITERATIONS OF FOLDS****************************************************************:',
             ind)
-        # inits = ['random_uniform', keras.initializers.glorot_normal(seed=None), 'glorot_uniform',
-        #          keras.initializers.Ones(),
-        #          keras.initializers.RandomNormal(mean=0.0, stddev=0.05, seed=None),
-        #          keras.initializers.he_normal(seed=None),
-        #          keras.initializers.TruncatedNormal(mean=0.0, stddev=0.05, seed=None),
-        #          keras.initializers.VarianceScaling(scale=1.0, mode='fan_in', distribution='normal', seed=None),
-        #          keras.initializers.Orthogonal(gain=1.0, seed=None), keras.initializers.lecun_uniform(seed=None)]
+        inits = ['random_uniform', keras.initializers.glorot_normal(seed=None), 'glorot_uniform',
+                 keras.initializers.Ones(),
+                 keras.initializers.RandomNormal(mean=0.0, stddev=0.05, seed=None),
+                 keras.initializers.he_normal(seed=None),
+                 keras.initializers.TruncatedNormal(mean=0.0, stddev=0.05, seed=None),
+                 keras.initializers.VarianceScaling(scale=1.0, mode='fan_in', distribution='normal', seed=None),
+                 keras.initializers.Orthogonal(gain=1.0, seed=None), keras.initializers.lecun_uniform(seed=None)]
         # losses = ['binary_crossentropy', 'mean_squared_error', 'hinge']
         models_list = []
         cnt = 0
-        for i in range(10):
+        for i in range(0, len(inits)):
             # for k in range(0, len(losses)):
             print(
                 '*********************************************************ITERATIONS OF MODELS****************************************************************:',
                 cnt)
             if resampling_flag:
                 # train_shuffle, out_shuffle = shuffle(dataset[train_index], output[train_index])
-                train_shuffle_resample, out_shuffle_resample = resample(dataset[train_index], output[train_index], replace=True,
-                                                      n_samples=len(dataset[train_index]))
+                train_shuffle_resample, out_shuffle_resample = resample(dataset[train_index], output[train_index],
+                                                                        replace=True,
+                                                                        n_samples=len(dataset[train_index]))
             else:
                 # train_shuffle_resample = dataset[train_index]
                 # out_shuffle_resample = output[train_index]
                 train_shuffle_resample, out_shuffle_resample = shuffle(dataset[train_index], output[train_index])
             model = Sequential()
-            model.add(Dense(h1, input_dim=2, activation='tanh'))
+            model.add(Dense(h1, input_dim=2, activation='tanh', kernel_initializer=inits[i]))
             if h2 > 0:
-                model.add(Dense(h2, activation='tanh'))
+                model.add(Dense(h2, activation='tanh', kernel_initializer=inits[i]))
 
             model.add(Dense(1, activation='sigmoid'))
             model.compile(loss='binary_crossentropy', optimizer=keras.optimizers.Adadelta(),
