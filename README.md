@@ -7,5 +7,6 @@ Fundamental Machine Learning Codes
 4. gradientsse.py -- Linear regression using Sum of squared errors.
 5. gradientdist.py -- Linear regression using distance of a point from a plane.
 6. logistic.py -- Logistic Regression and PCA with and without normalization for 3 datasets.
+7. neural.py -- Feed Forward Neural Network for 2 abstract concepts.
 
 
