@@ -7,6 +7,8 @@ from sklearn.datasets import make_classification
 from sklearn.metrics import roc_auc_score
 from sklearn.datasets import load_breast_cancer
 from sklearn import metrics
+import tensorflow as tf
+
 
 
 def sigmoid(z):
