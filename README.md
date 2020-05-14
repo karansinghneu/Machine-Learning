@@ -8,6 +8,9 @@ Fundamental Machine Learning Codes
 5. gradientdist.py -- Linear regression using distance of a point from a plane.
 6. logistic.py -- Logistic Regression and PCA with and without normalization for 3 datasets.
 7. neural.py -- Feed Forward Neural Network for 2 abstract concepts.
-Learned Concept 1           |  Learned Concept 2
-:-------------------------:|:-------------------------:
-![](./concept_1.png)  |  ![](./concept_2.png)
+
+Learned Concept 1 and 2 Heat Maps:
+
+![](./concept_1.png =100x20)
+
+![](./concept_2.png =100x20)
