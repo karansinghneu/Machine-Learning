@@ -11,6 +11,6 @@ Fundamental Machine Learning Codes
 
 Learned Concept 1 and 2 Heat Maps:
 
-![](./concept_1.png =100x20)
+![](./concept_1.png)
 
-![](./concept_2.png =100x20)
+![](./concept_2.png)
