@@ -9,8 +9,10 @@ Fundamental Machine Learning Codes
 6. logistic.py -- Logistic Regression and PCA with and without normalization for 3 datasets.
 7. neural.py -- Feed Forward Neural Network for 2 abstract concepts.
 
-![](./concept_1.png "Learned Concept 1 Heat Map")
+Learned Concept 1 and 2 Heat Maps:
 
-![](./concept_2.png "Learned Concept 2 Heat Map")
+![](./concept_1.png)
+
+![](./concept_2.png)
 
 
